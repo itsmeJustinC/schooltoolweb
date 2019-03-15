@@ -5,5 +5,5 @@ app = Flask(__name__)
 def index():
   return "<h1>hello</h1>"
  
-
-app.run(debug=True, use_reloader=True)
+if __name__ == "__main__":
+  app.run(debug=True, use_reloader=True)
