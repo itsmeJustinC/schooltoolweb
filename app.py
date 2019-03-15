@@ -7,7 +7,9 @@ from selenium import webdriver
 app = Flask(__name__)
 @app.route('/')
 def index():
-  driver = webdriver.Firefox()
+  chrome_options = Options()
+  chrome_options.add_argument("--headless")
+  driver = webdriver.Chrome(chrome_options=chrome_options)
   driver.get("https://google.com")
   return driver.title
  
