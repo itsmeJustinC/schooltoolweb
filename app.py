@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 
 username = "Pb272098" #fill with user input
 passwd = "Jan010203" #fill with user input
-grades = []
 quarter = "3" #change to user input
 
 app = Flask(__name__)
@@ -37,11 +36,10 @@ def index():
   for i in tr:
       course = i.td.span.text.split(',')[0]
       grade = i.td.next_sibling.span.text
-      grades.append(course + ": " + grade)
+      return_grades += course + ": " + grade + "\n"
       
   driver.quit()
-
-  return "return result: " + str(list)
+  return return_grades
  
 if __name__ == "__main__":
   app.run(debug=True, use_reloader=True)
