@@ -41,7 +41,7 @@ def index():
       
   driver.quit()
 
-  return "<h1>return value: {{ grades }}</h1>"
+  return "return result: " + str(list)
  
 if __name__ == "__main__":
   app.run(debug=True, use_reloader=True)
