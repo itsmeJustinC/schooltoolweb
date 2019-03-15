@@ -2,8 +2,9 @@ from flask import Flask
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-
-
+username = "Pb272098" #fill with user input
+passwd = "Jan010203" #fill with user input
+grades = []
 
 app = Flask(__name__)
 @app.route('/')
@@ -11,8 +12,33 @@ def index():
   chrome_options = Options()
   chrome_options.add_argument("--headless")
   driver = webdriver.Chrome(chrome_options=chrome_options)
-  driver.get("https://google.com")
-  return driver.title
+  
+  driver.get("https://schooltool.pinebushschools.org/schooltoolweb/")
+  
+  driver.find_element_by_id('Template1_MenuList1_TextBoxUsername').send_keys(username)
+  driver.find_element_by_id('Template1_MenuList1_TextBoxPassword').send_keys(passwd)
+  driver.find_element_by_name("Template1$MenuList1$ButtonLogin").click()
+  driver.find_element_by_name('Template1$Control0$IconButtonSelect').click()
+
+
+  driver.find_element_by_id('Template1_Control0_TabHeader2_Menutabs1_MenuTabGrades').click()
+  select = Select(driver.find_element_by_name('Template1$Control0$StudentGradesView1$ViewDropDownList'))
+  select.select_by_value('3')
+
+  selectQuarter = Select(driver.find_element_by_name('Template1$Control0$StudentGradesView1$MarkingPeriodDropDown'))
+  selectQuarter.select_by_value('15'+ QUARTER)
+
+  soup = BeautifulSoup(driver.page_source, "html.parser")
+  table = soup.find('table', id="Template1_Control0_StudentGradesView1_GradeTypeMultiView_StudentGradesMPAvgView_DataGrid1")
+  tr = table.tbody.find_all('tr', class_=['DataGridItemStyle', 'DataGridAlternateItemStyle'])
+  for i in tr:
+      course = i.td.span.text.split(',')[0]
+      grade = i.td.next_sibling.span.text
+      grades.append(course + ": " + grade)
+      
+  driver.quit()
+
+  return grades
  
 if __name__ == "__main__":
   app.run(debug=True, use_reloader=True)
