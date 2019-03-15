@@ -6,5 +6,4 @@ def index():
   return "<h1>hello</h1>"
  
 
-PORT = os.environ.get("PORT", 80)
-app.run(host="localhost", port=PORT)
+app.run(host="localhost", debug=True, use_reloader=True)
