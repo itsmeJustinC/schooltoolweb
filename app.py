@@ -6,4 +6,4 @@ def index():
   return "<h1>hello</h1>"
  
 
-app.run(host="localhost", debug=True, use_reloader=True)
+app.run(debug=True, use_reloader=True)
