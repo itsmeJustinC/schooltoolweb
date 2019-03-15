@@ -1,5 +1,6 @@
 from flask import Flask
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 
 username = "Pb272098" #fill with user input
