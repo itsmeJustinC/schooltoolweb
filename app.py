@@ -40,7 +40,7 @@ def index():
       return_grades[course] = grade
       
   driver.quit()
-  return return_grades
+  return jsonify(return_grades)
  
 if __name__ == "__main__":
   app.run(debug=True, use_reloader=True)
