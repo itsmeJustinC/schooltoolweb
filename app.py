@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 username = "Pb272098" #fill with user input
 passwd = "Jan010203" #fill with user input
 quarter = "3" #change to user input
+return_grades = ""
 
 app = Flask(__name__)
 @app.route('/')
