@@ -9,7 +9,7 @@ passwd = "Jan010203" #fill with user input
 quarter = "3" #change to user input
 
 app = Flask(__name__)
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
   chrome_options = Options()
   chrome_options.add_argument("--headless")
@@ -33,11 +33,11 @@ def index():
   soup = BeautifulSoup(driver.page_source, "html.parser")
   table = soup.find('table', id="Template1_Control0_StudentGradesView1_GradeTypeMultiView_StudentGradesMPAvgView_DataGrid1")
   tr = table.tbody.find_all('tr', class_=['DataGridItemStyle', 'DataGridAlternateItemStyle'])
-  return_grades = ""
+  return_grades = {}
   for i in tr:
       course = i.td.span.text.split(',')[0]
       grade = i.td.next_sibling.span.text
-      return_grades += course + ": " + grade + "\n"
+      return_grades[course] = grade
       
   driver.quit()
   return return_grades
