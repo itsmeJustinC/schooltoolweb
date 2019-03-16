@@ -7,7 +7,6 @@ from bs4 import BeautifulSoup
 username = "Pb272098" #fill with user input
 passwd = "Jan010203" #fill with user input
 quarter = "3" #change to user input
-return_grades = ""
 
 app = Flask(__name__)
 @app.route('/')
@@ -34,6 +33,7 @@ def index():
   soup = BeautifulSoup(driver.page_source, "html.parser")
   table = soup.find('table', id="Template1_Control0_StudentGradesView1_GradeTypeMultiView_StudentGradesMPAvgView_DataGrid1")
   tr = table.tbody.find_all('tr', class_=['DataGridItemStyle', 'DataGridAlternateItemStyle'])
+  return_grades = ""
   for i in tr:
       course = i.td.span.text.split(',')[0]
       grade = i.td.next_sibling.span.text
