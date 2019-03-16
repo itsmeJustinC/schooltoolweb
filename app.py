@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import jsonify
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
