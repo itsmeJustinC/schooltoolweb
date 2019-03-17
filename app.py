@@ -30,7 +30,7 @@ def index():
     driver.find_element_by_id('Template1_MenuList1_TextBoxPassword').send_keys(passwd)
     driver.find_element_by_name("Template1$MenuList1$ButtonLogin").click()
   except Exception:
-    abort(500)
+    return Response("Incorrect Username or Password", 401)
   driver.find_element_by_name('Template1$Control0$IconButtonSelect').click()
 
 
@@ -52,10 +52,6 @@ def index():
       
   driver.quit()
   return jsonify(return_grades)
-
-@app.errorhandler(500)
-def internal_server_error(error):
-  return Response("Incorrect Username or Password", 401)
 
 
 if __name__ == "__main__":
