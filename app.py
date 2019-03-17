@@ -1,4 +1,4 @@
-from flask import Flask, request, abort, Response
+from flask import Flask, request
 from flask import jsonify
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -53,7 +53,7 @@ def index():
 
 @app.errorhandler(500)
 def internal_server_error(error):
-  return Response(status=401)
+  return "401 error", 401
 
 
 if __name__ == "__main__":
