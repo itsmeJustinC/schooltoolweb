@@ -49,6 +49,11 @@ def index():
       
   driver.quit()
   return jsonify(return_grades)
- 
+
+@app.errorhandler(500)
+def internal_server_error(e):
+  return Response(status=401)
+
+
 if __name__ == "__main__":
   app.run(debug=True, use_reloader=True)
