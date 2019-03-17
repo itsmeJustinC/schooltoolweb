@@ -43,16 +43,16 @@ def index():
   tr = table.tbody.find_all('tr', class_=['DataGridItemStyle', 'DataGridAlternateItemStyle'])
   return_grades = {}
   for i in tr:
-      course = i.td.span.text.split(',')[0]
-      grade = i.td.next_sibling.span.text
-      return_grades[course] = grade
+    course = i.td.span.text.split(',')[0]
+    grade = i.td.next_sibling.span.text
+    return_grades[course] = grade
       
   driver.quit()
   return jsonify(return_grades)
 
 @app.errorhandler(500)
 def internal_server_error(e):
-  return Response(status=401)
+  return Response(Response="SERVER ERROR", status=401)
 
 
 if __name__ == "__main__":
