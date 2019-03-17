@@ -53,7 +53,7 @@ def index():
 
 @app.errorhandler(500)
 def internal_server_error(error):
-  return Response("Invalid Username or Password", 401)
+  return Response(status=401)
 
 
 if __name__ == "__main__":
