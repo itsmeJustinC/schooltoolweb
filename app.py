@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 from flask import jsonify
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -25,9 +25,12 @@ def index():
   
   driver.get("https://schooltool.pinebushschools.org/schooltoolweb/")
   
-  driver.find_element_by_id('Template1_MenuList1_TextBoxUsername').send_keys(username)
-  driver.find_element_by_id('Template1_MenuList1_TextBoxPassword').send_keys(passwd)
-  driver.find_element_by_name("Template1$MenuList1$ButtonLogin").click()
+  try:
+    driver.find_element_by_id('Template1_MenuList1_TextBoxUsername').send_keys(username)
+    driver.find_element_by_id('Template1_MenuList1_TextBoxPassword').send_keys(passwd)
+    driver.find_element_by_name("Template1$MenuList1$ButtonLogin").click()
+  except Exception:
+    abort(500)
   driver.find_element_by_name('Template1$Control0$IconButtonSelect').click()
 
 
