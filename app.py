@@ -51,8 +51,8 @@ def index():
   return jsonify(return_grades)
 
 @app.errorhandler(500)
-def internal_server_error(e):
-  return Response(Response="SERVER ERROR", status=401)
+def internal_server_error(error):
+  return Response("Incorrect Username or Password", 401)
 
 
 if __name__ == "__main__":
