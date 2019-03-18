@@ -13,7 +13,6 @@ def index():
   json = request.get_json()
   username = json['username']
   passwd = json['password']
-#   quarter = json['quarter']
   
   chrome_options = Options()
   chrome_options.add_argument("--headless")
