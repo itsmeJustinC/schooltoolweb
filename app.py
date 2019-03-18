@@ -6,13 +6,21 @@ from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 
 
+quarters = {
+  "1" : "155",
+  "2" : "154",
+  "3" : "153",
+  "4" : "152"
+}
+
+
 app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def index():
   json = request.get_json()
   username = json['username']
   passwd = json['password']
-  quarter = json['quarter']
+  quarter = quarters[json['quarter']]
   
   chrome_options = Options()
   chrome_options.add_argument("--headless")
