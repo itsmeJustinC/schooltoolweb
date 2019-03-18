@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=["POST"])
 def index():
   json = request.get_json()
   username = json['username']
