@@ -43,7 +43,7 @@ def index():
   select.select_by_value('3')
 
   selectQuarter = Select(driver.find_element_by_name('Template1$Control0$StudentGradesView1$MarkingPeriodDropDown'))
-  selectQuarter.select_by_value('15'+ quarter)
+  selectQuarter.select_by_value(quarter)
 
   soup = BeautifulSoup(driver.page_source, "html.parser")
   table = soup.find('table', id="Template1_Control0_StudentGradesView1_GradeTypeMultiView_StudentGradesMPAvgView_DataGrid1")
