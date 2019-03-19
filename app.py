@@ -17,7 +17,8 @@ quarters = {
 app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def index():
-  json = request.get_json()
+  json = request.form["Body"]
+  json = jsonify(json)
   username = json['username']
   passwd = json['password']
   quarter = quarters[json['quarter']]
