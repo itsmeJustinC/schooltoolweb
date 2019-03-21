@@ -18,11 +18,11 @@ quarters = {
 content_dict = {}
 
 def delete_content(username):
-	if (username in content_dict):
-		del content_dict[username]
-		print("Deleted " + username + " from the list"
-	else:
-		print("No cached data with that username")
+  if (username in content_dict):
+    del content_dict[username]
+    print("Deleted " + username + " from the list")
+  else:
+    print("No cached data with that username")
 
 app = Flask(__name__)
 CORS(app)
