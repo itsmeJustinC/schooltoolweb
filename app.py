@@ -20,6 +20,7 @@ content_dict = {}
 def delete_content(username):
 	if (username in content_dict):
 		del content_dict[username]
+		print("Deleted " + username + " from the list"
 	else:
 		print("No cached data with that username")
 
@@ -69,6 +70,7 @@ def index():
       
   driver.quit()
   content_dict[username] = return_grades
+  print("Added " + username + " to the list"
   Timer(300, delete_content, [username]).start()
   return jsonify(return_grades)
 
