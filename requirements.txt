@@ -3,4 +3,3 @@ gunicorn
 selenium
 bs4
 flask_cors
-Flask-Cache
