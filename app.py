@@ -1,12 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from flask_cache import  Cache
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
-from bs4 import BeautifulSoup
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 from threading import Timer
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
