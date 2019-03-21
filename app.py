@@ -32,7 +32,7 @@ def index():
   json = request.get_json()
   username = json['username']
   if (username in content_dict):
-	  return content_dict[username]
+	  return jsonify(content_dict[username])
   passwd = json['password']
   quarter = quarters[json['quarter']]
   
