@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask.ext.cache import  Cache
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
@@ -15,9 +16,12 @@ quarters = {
 
 
 app = Flask(__name__)
+app.config['CACHE_TYPE'] = 'simple'
+app.cache = Cache(app)  
 CORS(app)
 
 @app.route('/', methods=["GET", "POST"])
+@app.cache.cached(timeout=300)
 def index():
   json = request.get_json()
   username = json['username']
