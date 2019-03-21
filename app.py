@@ -70,7 +70,7 @@ def index():
       
   driver.quit()
   content_dict[username] = return_grades
-  print("Added " + username + " to the list"
+  print("Added " + username + " to the list")
   Timer(300, delete_content, [username]).start()
   return jsonify(return_grades)
 
