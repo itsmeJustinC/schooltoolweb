@@ -69,9 +69,10 @@ def index():
     return_grades[course] = grade
       
   driver.quit()
-  content_dict[username] = return_grades
+  username_dict = username + quarter
+  content_dict[username_dict] = return_grades
   print("Added " + username + " to the list")
-  Timer(300, delete_content, [username]).start()
+  Timer(300, delete_content, [username_dict]).start()
   return jsonify(return_grades)
 
 @app.errorhandler(500)
