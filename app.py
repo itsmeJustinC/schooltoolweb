@@ -17,8 +17,8 @@ quarters = {
 
 content_dict = {}
 
-def delete_content(username):
-  if (username in content_dict):
+def delete_content(username, quarter):
+  if (username+quarter in content_dict):
     del content_dict[username]
     print("Deleted " + username + " from the list")
   else:
@@ -31,10 +31,10 @@ CORS(app)
 def index():
   json = request.get_json()
   username = json['username']
-  if (username in content_dict):
-	  return jsonify(content_dict[username])
   passwd = json['password']
   quarter = quarters[json['quarter']]
+  if (username+quarter in content_dict):
+    return jsonify(content_dict[username+quarter])
   
   chrome_options = Options()
   chrome_options.add_argument("--headless")
