@@ -116,6 +116,7 @@ def index():
     return content_dict[username + quarter]
   
   # Return the grades of the user as a JSON object for the front end to use
+  Timer(300, delete_content, [username])
   return jsonify(get_grades(URL, username, passwd, quarter))
 
 # This handles a 500 error which could occur if the username and password is incorrect
