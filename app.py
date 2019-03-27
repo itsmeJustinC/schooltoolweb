@@ -1,5 +1,5 @@
 #######################################################################################
-# This program awaits a request from a website then given the proper credentials,
+# This program awaits a request from a website then, given the proper credentials,
 # will get the grades from our school grading system and return them to the requesting
 # website so that it can be displayed nicely for the user
 #######################################################################################
