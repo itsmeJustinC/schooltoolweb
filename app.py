@@ -15,10 +15,10 @@ from bs4 import BeautifulSoup
 
 # Translate the actual quarter to the value used on schooltool
 QUARTERS = {
-  "1" : "155",
-  "2" : "154",
-  "3" : "153",
-  "4" : "152"
+  "1" : "213",
+  "2" : "212",
+  "3" : "211",
+  "4" : "210"
 }
 
 # The URL that selenium get pointed to (The schooltool website)
