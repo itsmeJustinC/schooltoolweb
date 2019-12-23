@@ -67,7 +67,7 @@ def get_grades(url, username, password, quarter):
   driver.find_element_by_id('Template1_MenuList1_TextBoxPassword').send_keys(password)
   driver.find_element_by_name("Template1$MenuList1$ButtonLogin").click()
   
-  driver.find_element_by_name('Template1$Control0$IconButtonSelect').click()
+  driver.find_element_by_xpath('//*[@title="View Student Record"]').click()
 
 
   driver.find_element_by_id('Template1_Control0_TabHeader2_Menutabs1_MenuTabGrades').click()
