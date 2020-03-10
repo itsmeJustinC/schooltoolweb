@@ -120,9 +120,6 @@ def index():
 
 # This handles a 500 error which could occur if the username and password is incorrect
 # If this happens it instead returns a 401 error that is returned to the front end
-@app.errorhandler(500)
-def internal_server_error(error):
-  return "401 error", 401
 
 # This just runs the program
 if __name__ == "__main__":
